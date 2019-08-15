@@ -1,0 +1,21 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "node": "8",
+        "browsers": ["last 2 versions"]
+      }
+    }]
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "~ui": "./src/app/components",
+        "~layouts": "./src/app/layouts",
+        "~pages": "./src/app/pages",
+        "~utils": "./src/utils",
+        "~state": "./src/app/state"
+      }
+    }]
+  ]
+}
