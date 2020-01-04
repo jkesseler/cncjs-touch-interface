@@ -1,41 +1,27 @@
 import React, { Suspense, memo } from 'react';
-import LinearProgress from '@material-ui/core/LinearProgress';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+import Spinner from 'react-bootstrap/spinner';
 
-export const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
+export const AppRoute = ({ component: Component, ...rest }) => (
   <Route
-    // eslint-disable-next-line react/jsx-props-no-spreading
     {...rest}
-    render={(props) => (
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      <Layout {...rest}>
-        <Suspense fallback={(
-          <div style={{ marginTop: 16 }}>
-            <LinearProgress color="secondary" variant="query" />
-          </div>
-          )}
-        >
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <Component {...props} />
-        </Suspense>
-      </Layout>
+    render={props => (
+      <Suspense fallback={(
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      )}
+      >
+        <Component {...props} />
+      </Suspense>
     )}
   />
 );
 
-//
-// const componentPropType = PropTypes.oneOfType([
-//   PropTypes.string,
-//   PropTypes.func,
-//   PropTypes.element,
-// ]);
-//
-
 /* eslint-disable react/forbid-prop-types */
 AppRoute.propTypes = {
-  component: PropTypes.any.isRequired,
-  layout: PropTypes.any.isRequired,
+  component: PropTypes.elementType.isRequired,
 };
 
 export default memo(AppRoute);

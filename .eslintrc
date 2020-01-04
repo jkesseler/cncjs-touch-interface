@@ -23,10 +23,12 @@
     // https://github.com/benmosher/eslint-plugin-import/issues/544#issuecomment-244976007
     "import/no-named-as-default": ["off"],
     "max-depth": ["warn", 3],
+    "max-len": ["error", 140],
     "no-underscore-dangle": ["error", { "allow": ["__INITIAL_STATE__"] }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     // This rule invalidates all nested jsx *and* html childs
     "react/jsx-one-expression-per-line": ["off"],
-    "react/prop-types": ["error", { skipUndeclared: true } ],
+    "react/prop-types": ["error", { "skipUndeclared": true } ],
+    "react/jsx-props-no-spreading": ["off"],
   }
 }

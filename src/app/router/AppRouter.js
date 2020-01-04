@@ -12,7 +12,6 @@ export const AppRouter = ({ routes }) => (
         component={component}
         key={path}
         path={path}
-        layout={layout}
         exact={exact}
         title={title}
       />

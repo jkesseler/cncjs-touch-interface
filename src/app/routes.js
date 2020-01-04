@@ -1,17 +1,22 @@
-import { lazy } from 'react';
-import HomeIcon from '@material-ui/icons/Home';
-import * as Layouts from './layouts';
+import React, { lazy } from 'react';
 
-const Home = lazy(() => import('./pages/Home'));
+const Main = lazy(() => import('./pages/Main'));
+const Mdi = lazy(() => import('./pages/Mdi'));
 
 const routes = [
   {
-    component: Home,
-    layout: Layouts.Default,
+    component: Main,
     path: '/',
     exact: true,
-    title: 'Home',
-    icon: HomeIcon,
+    title: 'Main',
+    icon: () => <span>TODO</span>,
+  },
+  {
+    component: Mdi,
+    path: '/mdi',
+    exact: true,
+    title: 'MDI',
+    icon: () => <span>TODO</span>,
   },
 ];
 

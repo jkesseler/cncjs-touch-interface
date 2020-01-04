@@ -1,0 +1,47 @@
+$size: 80px;
+$padding: 0.25rem;
+
+.gridXy {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, $size);
+  grid-template-rows: repeat(3, $size);
+}
+
+.gridZ {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: $size;
+  grid-template-rows: repeat(3, $size);
+}
+
+.col {
+  padding: $padding;
+  // background-color: #ccc;
+}
+
+.btnSquare {
+  padding: 0;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.btnIcon {
+  fill: rgba(255,255,255, 0.5);
+}
+
+.btnLabel {
+  align-items: flex-end;
+  bottom: 0.1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  margin: auto;
+  position: absolute;
+  right: 0.1rem;
+  z-index: 10;
+  color: #d9d9d9;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+}
