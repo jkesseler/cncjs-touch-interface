@@ -85,14 +85,18 @@ const Header = ({
   );
 };
 
-Header.prototypes = {
+Header.propTypes = {
   controllerType: PropTypes.string.isRequired,
   controllerState: PropTypes.string.isRequired,
-  customActions: PropTypes.arrayOf(PropTypes.shape({
+  userCommands: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
   })),
+};
+
+Header.defaultProps = {
+  userCommands: [],
 };
 
 export default Header;

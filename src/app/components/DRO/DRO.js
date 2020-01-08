@@ -61,7 +61,7 @@ const DRO = () => (
   </div>
 );
 
-DRO.prototypes = {
+DRO.propTypes = {
 };
 
 export default DRO;

@@ -5,9 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import Nouislider from 'nouislider-react';
+import FAIcon from '@ui/FAIcon';
 import 'nouislider/distribute/nouislider.css';
-
-import { ReactComponent as Arrow } from '@assets/glyphicons/basic/arrow-thin-up.svg';
 
 import styles from './JogControls.module.scss';
 
@@ -33,21 +32,21 @@ const JogControls = () => {
 
             <Button variant="success" className={[styles.col, styles.btnSquare]}>
               <span className={styles.btnLabel}>Y+</span>
-              <Arrow className={styles.btnIcon} />
+              <FAIcon icon="long-arrow-alt-up" className={styles.btnIcon} size="3x" />
             </Button>
 
             <div className={styles.col} />
 
             <Button variant="success" className={[styles.col, styles.btnSquare]}>
               <span className={styles.btnLabel}>X-</span>
-              <Arrow className={styles.btnIcon} style={{ transform: 'rotate(-90deg)' }} />
+              <FAIcon icon="long-arrow-alt-left" className={styles.btnIcon} size="3x" />
             </Button>
 
             <div className={styles.col} />
 
             <Button variant="success" className={[styles.col, styles.btnSquare]}>
               <span className={styles.btnLabel}>X-</span>
-              <Arrow className={styles.btnIcon} style={{ transform: 'rotate(90deg)' }} />
+              <FAIcon icon="long-arrow-alt-right" className={styles.btnIcon} size="3x" />
             </Button>
 
             <div className={styles.col} />
@@ -55,7 +54,7 @@ const JogControls = () => {
             <div className={styles.col}>
               <Button variant="success" className={styles.btnSquare}>
                 <span className={styles.btnLabel}>Y-</span>
-                <Arrow className={styles.btnIcon} style={{ transform: 'rotate(180deg)' }} />
+                <FAIcon icon="long-arrow-alt-down" className={styles.btnIcon} size="3x" />
               </Button>
             </div>
             <div className={styles.col} />
@@ -65,14 +64,14 @@ const JogControls = () => {
           <div className={styles.gridZ}>
             <Button variant="success" className={[styles.col, styles.btnSquare]}>
               <span className={styles.btnLabel}>Z+</span>
-              <Arrow className={styles.btnIcon} />
+              <FAIcon icon="long-arrow-alt-up" className={styles.btnIcon} size="3x" />
             </Button>
 
             <div className={styles.col} />
 
             <Button variant="success" className={[styles.col, styles.btnSquare]}>
               <span className={styles.btnLabel}>Z-</span>
-              <Arrow className={styles.btnIcon} style={{ transform: 'rotate(180deg)' }} />
+              <FAIcon icon="long-arrow-alt-down" className={styles.btnIcon} size="3x" />
             </Button>
           </div>
         </Col>
@@ -102,7 +101,7 @@ const JogControls = () => {
   );
 };
 
-JogControls.prototypes = {
+JogControls.propTypes = {
 };
 
 export default JogControls;
