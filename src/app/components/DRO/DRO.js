@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
 
 import styles from './DRO.module.scss';
 
@@ -11,9 +12,7 @@ const DRO = () => (
     <Row noGutters>
       <Col>
         <div className={styles.grid}>
-          <div className={styles.col}>
-            Axis
-          </div>
+          <div className={styles.col} />
           <div className={styles.col}>
             Machine pos.
           </div>
@@ -27,10 +26,10 @@ const DRO = () => (
             </Button>
           </div>
           <div className={styles.col}>
-            1.001
+            <FormControl value="2.222" className={styles.readout} readOnly />
           </div>
           <div className={styles.col}>
-            2.222
+            <FormControl value="2.222" className={styles.readout} readOnly />
           </div>
           <div className={styles.col}>
             <Button variant="info" className={styles.btnSquare}>
@@ -39,10 +38,10 @@ const DRO = () => (
             </Button>
           </div>
           <div className={styles.col}>
-            10.001
+            <FormControl value="10.001" className={styles.readout} readOnly />
           </div>
           <div className={styles.col}>
-            20.222
+            <FormControl value="20.222" className={styles.readout} readOnly />
           </div>
           <div className={styles.col}>
             <Button variant="info" className={styles.btnSquare}>
@@ -51,10 +50,10 @@ const DRO = () => (
             </Button>
           </div>
           <div className={styles.col}>
-            10.001
+            <FormControl value="10.001" className={styles.readout} readOnly />
           </div>
           <div className={styles.col}>
-            20.222
+            <FormControl value="20.222" className={styles.readout} readOnly />
           </div>
         </div>
       </Col>

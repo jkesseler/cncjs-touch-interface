@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "bootstrap-switch-button-react": "^1.2.0",
     "bootswatch": "^4.4.1",
+    "classnames": "^2.2.6",
     "nouislider": "^14.1.1",
     "nouislider-react": "^3.3.5",
     "prop-types": "^15.7.2",

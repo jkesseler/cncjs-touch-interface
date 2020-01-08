@@ -26,9 +26,8 @@ First version only support 3 axis milling machines based on GRBL
 - JOG buttons
 
 
-## Architecture
-- PWA compliant
-- Replace material-ui with react-bootstrap / [Bootswatch Slate theme](https://bootswatch.com/slate/)?
+## Decisions to be made
+- MAke PWA compliant?
 
 
 # GUI's to take inspiration from

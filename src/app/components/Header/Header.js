@@ -47,7 +47,7 @@ const Header = ({
       <Row noGutters>
         <Col className="col-auto">
           <Dropdown>
-            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               <span className="sr-only">Toggle menu </span>
               <MenuIcon className={styles.btnIcon} />
             </Dropdown.Toggle>

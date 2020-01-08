@@ -95,7 +95,7 @@ const JogControls = () => {
           />
         </Col>
         <Col xs={3} md={3}>
-          <FormControl readOnly value={`${distance} MM`} />
+          <FormControl size="sm" value={`${distance} MM`} readOnly />
         </Col>
       </Row>
     </div>
