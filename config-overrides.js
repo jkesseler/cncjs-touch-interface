@@ -6,10 +6,11 @@ module.exports = override(
     ['@babel/plugin-proposal-export-default-from'],
     ['module-resolver', {
       alias: {
+        '@constants': './src/constants',
         '@assets': './src/assets',
         '@ui': './src/app/components',
         '@pages': './src/app/pages',
-        '@utils': './src/utils',
+        '@utils': './src/app/utils',
         '@state': './src/app/state',
       },
     }],

@@ -7,37 +7,31 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Dropdown from 'react-bootstrap/Dropdown';
-
-
-import { ReactComponent as MenuIcon } from '@assets/glyphicons/basic/menu.svg';
-import { ReactComponent as PlayIcon } from '@assets/glyphicons/basic/play.svg';
-import { ReactComponent as PauseIcon } from '@assets/glyphicons/basic/pause.svg';
-import { ReactComponent as StopIcon } from '@assets/glyphicons/basic/stop.svg';
-import { ReactComponent as CancelIcon } from '@assets/glyphicons/basic/square-remove.svg';
+import FAIcon from '@ui/FAIcon';
 
 import styles from './Header.module.scss';
 
 const Header = ({
   controllerType,
-  controllerState,
+  workflowState,
   userCommands,
 }) => {
   const dropdownItems = [{
     label: 'Homing',
-    icon: 'home',
+    icon: <FAIcon icon="home" size="1x" className="mr-2" />,
     onClick: () => {},
   }, {
     label: 'Sleep',
-    icon: 'bed-sleeping',
+    icon: <FAIcon icon="bed" size="1x" className="mr-2" />,
     onClick: () => {},
   }, {
     label: 'Unlock',
-    icon: 'lock-open',
+    icon: <FAIcon icon="unlock" size="1x" className="mr-2" />,
     onClick: () => { },
   },
   {
     label: 'Reset',
-    icon: 'undo',
+    icon: <FAIcon icon="undo" size="1x" className="mr-2" />,
     onClick: () => { },
   }];
 
@@ -49,14 +43,27 @@ const Header = ({
           <Dropdown>
             <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               <span className="sr-only">Toggle menu </span>
-              <MenuIcon className={styles.btnIcon} />
+              <FAIcon icon="bars" size="1x" className={styles.btnIcon} />
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              {dropdownItems.map(item => <Dropdown.Item onClick={item.onClick} key={item.label}>{item.label}</Dropdown.Item>) }
+              {dropdownItems.map(item => (
+                <Dropdown.Item
+                  className={styles.dropdownItem}
+                  onClick={item.onClick}
+                  key={item.label}
+                >
+                  {item.icon && item.icon} <span>{item.label}</span>
+                </Dropdown.Item>
+              ))}
+
               {userCommands && (<Dropdown.Divider />)}
               {userCommands.map(item => <Dropdown.Item onClick={item.onClick} key={item.label}>{item.label}</Dropdown.Item>) }
+
               <Dropdown.Divider />
-              <Dropdown.Item onClick={() => { /* TODO: */ }} key="back">Connection</Dropdown.Item>
+              <Dropdown.Item onClick={() => { /* TODO: */ }} key="connection">
+                <FAIcon icon="link" size="1x" className="mr-2" />
+                <span>Connection</span>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Col>
@@ -65,18 +72,18 @@ const Header = ({
             <InputGroup.Prepend>
               <InputGroup.Text>{controllerType}</InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl readOnly value={controllerState} />
+            <FormControl readOnly value={workflowState} />
           </InputGroup>
         </Col>
         <Col className="col-auto">
           <ButtonGroup>
             <Button>
               <span className="sr-only">Start / Resume</span>
-              <PlayIcon className={styles.btnIcon} /> {/* <PauseIcon />  TODO: Show based on GRBL status */}
+              <FAIcon icon="play" size="1x" className={styles.btnIcon} /> {/* TODO: Show based on GRBL status */}
             </Button>
             <Button>
               <span className="sr-only">Stop / Clear</span>
-              <StopIcon className={styles.btnIcon} /> {/* <CancelIcon />  TODO: Show based on GRBL status */}
+              <FAIcon icon="stop" size="1x" className={styles.btnIcon} /> {/*  TODO: Cancel button (times) */}
             </Button>
           </ButtonGroup>
         </Col>
@@ -87,7 +94,7 @@ const Header = ({
 
 Header.propTypes = {
   controllerType: PropTypes.string.isRequired,
-  controllerState: PropTypes.string.isRequired,
+  workflowState: PropTypes.string.isRequired,
   userCommands: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,

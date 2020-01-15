@@ -1,4 +1,4 @@
-import clientFetcher from '~utils/client-fetcher';
+import clientFetcher from '@utils/client-fetcher';
 import { loadTodosFail, loadTodosSuccess } from './actions';
 import * as types from './types';
 

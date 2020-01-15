@@ -26,6 +26,7 @@ const Buttons = () => {
             onlabel="Spindle"
             onstyle="danger"
             width="100"
+            size="sm"
           />
         </Col>
         <Col>
@@ -37,6 +38,7 @@ const Buttons = () => {
             onlabel="Flood"
             onstyle="danger"
             width="100"
+            size="sm"
           />
         </Col>
         <Col>
@@ -48,6 +50,7 @@ const Buttons = () => {
             onlabel="Mist"
             onstyle="danger"
             width="100"
+            size="sm"
           />
         </Col>
       </Row>

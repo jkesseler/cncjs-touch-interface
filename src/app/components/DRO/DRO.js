@@ -20,40 +20,40 @@ const DRO = () => (
             Work pos.
           </div>
           <div className={styles.col}>
-            <Button variant="info" className={styles.btnSquare}>
+            <Button variant="info" size="sm" className={styles.btnSquare}>
               <span className="text-shadow">X</span>
               <span className={styles.btnLabel}>zero</span>
             </Button>
           </div>
           <div className={styles.col}>
-            <FormControl value="2.222" className={styles.readout} readOnly />
+            <FormControl value="2.222" className={styles.readout} size="sm" readOnly />
           </div>
           <div className={styles.col}>
-            <FormControl value="2.222" className={styles.readout} readOnly />
+            <FormControl value="2.222" className={styles.readout} size="sm" readOnly />
           </div>
           <div className={styles.col}>
-            <Button variant="info" className={styles.btnSquare}>
+            <Button variant="info" size="sm" className={styles.btnSquare}>
               <span className="text-shadow">Y</span>
               <span className={styles.btnLabel}>zero</span>
             </Button>
           </div>
           <div className={styles.col}>
-            <FormControl value="10.001" className={styles.readout} readOnly />
+            <FormControl value="10.001" className={styles.readout} size="sm" readOnly />
           </div>
           <div className={styles.col}>
-            <FormControl value="20.222" className={styles.readout} readOnly />
+            <FormControl value="20.222" className={styles.readout} size="sm" readOnly />
           </div>
           <div className={styles.col}>
-            <Button variant="info" className={styles.btnSquare}>
+            <Button variant="info" size="sm" className={styles.btnSquare}>
               <span className="text-shadow">Z</span>
               <span className={styles.btnLabel}>zero</span>
             </Button>
           </div>
           <div className={styles.col}>
-            <FormControl value="10.001" className={styles.readout} readOnly />
+            <FormControl value="10.001" className={styles.readout} size="sm" readOnly />
           </div>
           <div className={styles.col}>
-            <FormControl value="20.222" className={styles.readout} readOnly />
+            <FormControl value="20.222" className={styles.readout} size="sm" readOnly />
           </div>
         </div>
       </Col>

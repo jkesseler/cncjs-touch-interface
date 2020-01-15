@@ -12,6 +12,7 @@
     "bootswatch": "^4.4.1",
     "case": "^1.6.2",
     "classnames": "^2.2.6",
+    "cncjs-controller": "^2.0.0-alpha.2",
     "nouislider": "^14.1.1",
     "nouislider-react": "^3.3.5",
     "prop-types": "^15.7.2",
@@ -25,6 +26,7 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "socket.io-client": "^2.3.0",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {

@@ -7,7 +7,7 @@ import AppRouter from './app/router';
 import routes from './app/routes';
 import './index.scss';
 
-
+// const token = getToken();
 // const storeInstance = configureStore();
 
 const Application = (

@@ -1,3 +1,5 @@
+// @import "bootstrap";
+
 .grid {
   display: grid;
   grid-gap: 1px;
@@ -8,7 +10,7 @@
 .col {
   align-items: center;
   display: flex;
-  padding: 0.5rem;
+  padding: 0.25rem;
 }
 
 .readout {
@@ -16,22 +18,17 @@
 }
 
 .btnSquare {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
   position: relative;
-  width: 100%;
 }
 
 .btnLabel {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  align-items: flex-end;
-  bottom: 0.2rem;
-  font-size: 0.8rem;
-  display: flex;
-  justify-content: flex-end;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  z-index: 10;
+  // @extend .pl-2;
+
   color: #d9d9d9;
-  // text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+  font-size: 0.8rem;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
 }
