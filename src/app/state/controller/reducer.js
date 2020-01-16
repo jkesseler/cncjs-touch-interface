@@ -1,4 +1,4 @@
-import * as types from './types';
+import types from './types';
 
 export function todoLoadSuccess(state, { payload }) {
   const { todos } = payload;
@@ -28,9 +28,11 @@ export function connectFailed(state, { payload }) {
 }
 
 const initialState = {
-  constrollerType: 'GRBL',
+  controllerType: 'GRBL',
   connected: false,
   baudrate: 115200,
+  userCommands: [],
+  workflowState: '',
 };
 
 export default function controllerReducer(state = { ...initialState }, action) {

@@ -15,7 +15,7 @@
   "rules": {
     "complexity": ["warn", 10],
     "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
-    "import/no-cycle": ["off", { maxDepth: 1 }],
+    "import/no-cycle": ["off", { "maxDepth": 1 }],
     "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["*/setupTests.js", "**/__tests__/*"]}],
@@ -23,12 +23,14 @@
     // https://github.com/benmosher/eslint-plugin-import/issues/544#issuecomment-244976007
     "import/no-named-as-default": ["off"],
     "max-depth": ["warn", 3],
-    "max-len": ["error", 140],
+    "max-len": [ "error", { "code": 140, "ignoreComments": true } ],
     "no-underscore-dangle": ["error", { "allow": ["__INITIAL_STATE__"] }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     // This rule invalidates all nested jsx *and* html childs
     "react/jsx-one-expression-per-line": ["off"],
     "react/prop-types": ["error", { "skipUndeclared": true } ],
-    "react/jsx-props-no-spreading": ["off"],
+    "react/jsx-props-no-spreading": ["off"]
   }
 }
+
+

@@ -1,4 +1,4 @@
-import * as types from './types';
+import types from './types';
 
 export const connect = (host, token) => ({
   type: types.CONNECT_START,

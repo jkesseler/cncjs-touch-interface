@@ -1,7 +1,9 @@
 /* eslint no-case-declarations: "off" */
 // https://dev.to/aduranil/how-to-use-websockets-with-redux-a-step-by-step-guide-to-writing-understanding-connecting-socket-middleware-to-your-project-km3
+
 import io from 'socket.io-client';
-import * as types from './types';
+import types from './types';
+
 
 const controllerMiddleware = store => next => (action) => {
   let socket = null;

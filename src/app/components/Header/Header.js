@@ -7,6 +7,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Dropdown from 'react-bootstrap/Dropdown';
+import getRoute from '@utils/get-route';
 import FAIcon from '@ui/FAIcon';
 
 import styles from './Header.module.scss';
@@ -57,10 +58,15 @@ const Header = ({
               ))}
 
               {userCommands && (<Dropdown.Divider />)}
-              {userCommands.map(item => <Dropdown.Item onClick={item.onClick} key={item.label}>{item.label}</Dropdown.Item>) }
+              {userCommands.map(item => (
+                <Dropdown.Item onClick={item.onClick} key={item.label}>
+                  <FAIcon icon="user-cog" size="1x" className="mr-2" />
+                  {item.label}
+                </Dropdown.Item>
+              ))}
 
               <Dropdown.Divider />
-              <Dropdown.Item onClick={() => { /* TODO: */ }} key="connection">
+              <Dropdown.Item key="connection" href={getRoute('/connection')}>
                 <FAIcon icon="link" size="1x" className="mr-2" />
                 <span>Connection</span>
               </Dropdown.Item>
@@ -79,11 +85,11 @@ const Header = ({
           <ButtonGroup>
             <Button>
               <span className="sr-only">Start / Resume</span>
-              <FAIcon icon="play" size="1x" className={styles.btnIcon} /> {/* TODO: Show based on GRBL status */}
+              <FAIcon icon="play" size="1x" className={styles.btnIcon} /> {/* TODO: Show based on workflowStatus */}
             </Button>
             <Button>
               <span className="sr-only">Stop / Clear</span>
-              <FAIcon icon="stop" size="1x" className={styles.btnIcon} /> {/*  TODO: Cancel button (times) */}
+              <FAIcon icon="stop" size="1x" className={styles.btnIcon} /> {/*  TODO: show ancel button (times) based on workflowStatus */}
             </Button>
           </ButtonGroup>
         </Col>

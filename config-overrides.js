@@ -5,6 +5,7 @@ module.exports = override(
   ...addBabelPlugins(
     ['@babel/plugin-proposal-export-default-from'],
     ['module-resolver', {
+      root: ['./src'],
       alias: {
         '@constants': './src/constants',
         '@assets': './src/assets',

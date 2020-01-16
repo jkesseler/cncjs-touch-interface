@@ -1,3 +1,4 @@
+// TODO: Replace SwitchButton with something decent
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
@@ -5,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import SwitchButton from 'bootstrap-switch-button-react';
 
 import styles from './Buttons.module.scss';
-
 
 const Buttons = () => {
   const [state, setState] = useState({

@@ -1,6 +1,6 @@
 import nsKeyMirror from '@utils/ns-keymirror';
 
-export default nsKeyMirror([
+const types = nsKeyMirror([
   'CONTROLLER_TYPE',
   'COMMAND',
   'CONNECTED',
@@ -16,3 +16,5 @@ export default nsKeyMirror([
   'SET_TOKEN',
   'BAUDRATE',
 ], '@@controller');
+
+export default types;

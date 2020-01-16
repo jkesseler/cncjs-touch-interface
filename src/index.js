@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-// import configureStore from './app/state';
+import configureStore from './app/state';
 import AppRouter from './app/router';
 import routes from './app/routes';
 import './index.scss';
 
 // const token = getToken();
-// const storeInstance = configureStore();
+const storeInstance = configureStore();
 
 const Application = (
-  <BrowserRouter>
-    <AppRouter routes={routes} />
-  </BrowserRouter>
+  <Provider store={storeInstance}>
+    <BrowserRouter>
+      <AppRouter routes={routes} />
+    </BrowserRouter>
+  </Provider>
 );
 
 const root = document.querySelector('#root');

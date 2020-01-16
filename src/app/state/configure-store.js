@@ -1,16 +1,16 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import todosReducer, { middleware as todosMiddleware } from './todos';
+import controllerReducer, { middleware as controllerMiddleware } from './controller';
 
 const rootReducer = combineReducers({
-  todos: todosReducer,
+  controller: controllerReducer,
 });
 
 const configureStore = () => {
   const middleware = [
     thunk,
-    todosMiddleware,
+    controllerMiddleware,
   ];
 
   const composeEnhancers = composeWithDevTools({

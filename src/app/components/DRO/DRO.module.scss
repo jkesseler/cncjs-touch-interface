@@ -19,14 +19,12 @@
 
 .btnSquare {
   align-items: center;
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
   position: relative;
 }
 
 .btnLabel {
-  // @extend .pl-2;
-
   color: #d9d9d9;
   font-size: 0.8rem;
   text-orientation: mixed;
