@@ -9,7 +9,7 @@
  * Spindle enable / disable [Toggle buttons: https://zeevy.github.io/grblcontroller/file-streaming-panel.html]
  */
 import React from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -18,9 +18,9 @@ import JogControls from '@ui/JogControls';
 import DRO from '@ui/DRO';
 import Buttons from '@ui/Buttons';
 
-import { selectors } from '@state/controller';
-
-const Main = ({ controllerType, userCommands, workflowState }) => (
+const Main = ({
+  controllerType, userCommands, workflowState, onJog,
+}) => (
   <Container fluid>
     <Row>
       <Col className="mt-3">
@@ -36,8 +36,7 @@ const Main = ({ controllerType, userCommands, workflowState }) => (
         <DRO />
       </Col>
       <Col xs={12} sm={6} className="mt-3">
-        {/* TODO: Add buttonClick function */}
-        <JogControls />
+        <JogControls onJog={onJog} />
       </Col>
     </Row>
     <Row>
@@ -49,11 +48,10 @@ const Main = ({ controllerType, userCommands, workflowState }) => (
   </Container>
 );
 
-const mapStateToProps = state => ({
-  controllerType: selectors.slice(state).controllerType,
-  userCommands: selectors.userCommands(state),
-  workflowState: selectors.workflowState(state),
-});
+Main.propTypes = {
+  ...Header.propTypes,
+  onJog: PropTypes.func.isRequired,
+};
 
 
-export default connect(mapStateToProps)(Main);
+export default Main;

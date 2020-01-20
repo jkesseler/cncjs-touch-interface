@@ -13,6 +13,7 @@ module.exports = override(
         '@pages': './src/app/pages',
         '@utils': './src/app/utils',
         '@state': './src/app/state',
+        '@vendor': './src/app/vendor',
       },
     }],
   ),

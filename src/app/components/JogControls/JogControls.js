@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -10,10 +10,10 @@ import 'nouislider/distribute/nouislider.css';
 
 import styles from './JogControls.module.scss';
 
-const JogControls = () => {
+const JogControls = ({ onJog }) => {
   const [distance, setDistance] = useState(1);
 
-  const handleSlide = (render, handle, value, un, percent) => {
+  const handleSlide = (render, handle, value) => {
     if (value >= 10) {
       setDistance(value[0].toFixed(0));
     } else if (value >= 1) {
@@ -23,6 +23,13 @@ const JogControls = () => {
     }
   };
 
+  const handleJog = (params) => {
+    const jogCommand = Object.entries(params).flat(2).join(' ');
+    onJog(['gcode', 'G91']);
+    onJog(['gcode', jogCommand]);
+    onJog(['gcode', 'G90']);
+  };
+
   return (
     <div>
       <Row noGutters>
@@ -30,29 +37,45 @@ const JogControls = () => {
           <div className={styles.gridXy}>
             <div className={styles.col} />
 
-            <Button variant="success" className={[styles.col, styles.btnSquare]}>
+            <Button
+              onClick={() => handleJog({ Y: distance })}
+              variant="success"
+              className={[styles.col, styles.btnSquare]}
+            >
               <span className={styles.btnLabel}>Y+</span>
               <FAIcon icon="long-arrow-alt-up" className={styles.btnIcon} size="3x" />
             </Button>
 
             <div className={styles.col} />
 
-            <Button variant="success" className={[styles.col, styles.btnSquare]}>
+            <Button
+              onClick={() => handleJog({ X: -distance })}
+              variant="success"
+              className={[styles.col, styles.btnSquare]}
+            >
               <span className={styles.btnLabel}>X-</span>
               <FAIcon icon="long-arrow-alt-left" className={styles.btnIcon} size="3x" />
             </Button>
 
             <div className={styles.col} />
 
-            <Button variant="success" className={[styles.col, styles.btnSquare]}>
-              <span className={styles.btnLabel}>X-</span>
+            <Button
+              onClick={() => handleJog({ X: distance })}
+              variant="success"
+              className={[styles.col, styles.btnSquare]}
+            >
+              <span className={styles.btnLabel}>X+</span>
               <FAIcon icon="long-arrow-alt-right" className={styles.btnIcon} size="3x" />
             </Button>
 
             <div className={styles.col} />
 
             <div className={styles.col}>
-              <Button variant="success" className={styles.btnSquare}>
+              <Button
+                onClick={() => handleJog({ Y: -distance })}
+                variant="success"
+                className={styles.btnSquare}
+              >
                 <span className={styles.btnLabel}>Y-</span>
                 <FAIcon icon="long-arrow-alt-down" className={styles.btnIcon} size="3x" />
               </Button>
@@ -62,14 +85,22 @@ const JogControls = () => {
         </Col>
         <Col className="col-auto">
           <div className={styles.gridZ}>
-            <Button variant="success" className={[styles.col, styles.btnSquare]}>
+            <Button
+              onClick={() => handleJog({ Z: distance })}
+              variant="success"
+              className={[styles.col, styles.btnSquare]}
+            >
               <span className={styles.btnLabel}>Z+</span>
               <FAIcon icon="long-arrow-alt-up" className={styles.btnIcon} size="3x" />
             </Button>
 
             <div className={styles.col} />
 
-            <Button variant="success" className={[styles.col, styles.btnSquare]}>
+            <Button
+              onClick={() => handleJog({ Z: -distance })}
+              variant="success"
+              className={[styles.col, styles.btnSquare]}
+            >
               <span className={styles.btnLabel}>Z-</span>
               <FAIcon icon="long-arrow-alt-down" className={styles.btnIcon} size="3x" />
             </Button>
@@ -102,6 +133,7 @@ const JogControls = () => {
 };
 
 JogControls.propTypes = {
+  onJog: PropTypes.func.isRequired,
 };
 
 export default JogControls;
