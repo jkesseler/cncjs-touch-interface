@@ -1,7 +1,3 @@
 # CNC Tablet Layout
 
-## Getting started
-
-### Installation
-
-## Contributing
+See: [development branch](jkesseler/cncjs-touch-interface/tree/development)
