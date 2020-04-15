@@ -2,10 +2,11 @@ export default function nsKeymirror(objectToMirror, namespace = null, separator 
   // https://www.30secondsofcode.org/js/s/flatten-object
   const flattenObject = (obj, prefix = '') => Object.keys(obj).reduce((acc, k) => {
     const pre = prefix.length ? `${prefix}.` : '';
-    if (typeof obj[k] === 'object') {
+
+    if (obj[k] && typeof obj[k] === 'object' && !Array.isArray(obj[k])) {
       Object.assign(acc, flattenObject(obj[k], pre + k));
     } else {
-      acc[pre + k] = obj[k];
+      acc[pre + k] = `${obj[k]}`;
     }
     return acc;
   }, {});
@@ -40,7 +41,7 @@ export default function nsKeymirror(objectToMirror, namespace = null, separator 
       });
     });
 
-    return mirrored;
+    return Object.freeze(mirrored);
   };
 
   return keyMirror(objectToMirror);

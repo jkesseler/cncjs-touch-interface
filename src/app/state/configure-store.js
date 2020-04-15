@@ -1,19 +1,14 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import controllerReducer, { middleware as controllerMiddleware } from './modules/controller';
-
-const rootReducer = combineReducers({
-  controller: controllerReducer,
-});
+import rootReducer, { middleware } from './modules';
 
 const configureStore = () => {
-  const middleware = [
+  const storeMiddleware = [
     thunk,
-    controllerMiddleware,
-
-    // /* MUST be last in the middleware array */
+    ...middleware,
+    /* MUST be last in the middleware array */
     logger,
   ];
 
@@ -23,7 +18,7 @@ const configureStore = () => {
 
   const store = createStore(
     rootReducer,
-    composeEnhancers(applyMiddleware(...middleware)),
+    composeEnhancers(applyMiddleware(...storeMiddleware)),
   );
 
   return store;

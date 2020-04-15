@@ -61,6 +61,27 @@ describe('ns-keymirror', () => {
     });
   });
 
+  it('accepts mixed types', () => {
+    const extraTypes = { FIRST: null, SECOND: null, THIRD: '' };
+
+    const types = nsKeymirror({
+      KEY_ONE: 1,
+      KEY_TWO: extraTypes,
+      KEY_THREE: extraTypes,
+    }, '@NAMESPACE');
+
+    expect(types).toEqual({
+      KEY_ONE: '@NAMESPACE/KEY_ONE',
+      'KEY_TWO.FIRST': '@NAMESPACE/KEY_TWO.FIRST',
+      'KEY_TWO.SECOND': '@NAMESPACE/KEY_TWO.SECOND',
+      'KEY_TWO.THIRD': '@NAMESPACE/KEY_TWO.THIRD',
+      'KEY_THREE.FIRST': '@NAMESPACE/KEY_THREE.FIRST',
+      'KEY_THREE.SECOND': '@NAMESPACE/KEY_THREE.SECOND',
+      'KEY_THREE.THIRD': '@NAMESPACE/KEY_THREE.THIRD',
+    });
+  });
+
+
   it('trows a TypError if argument is of wrong type', () => {
     const types = [
       1,
@@ -70,6 +91,35 @@ describe('ns-keymirror', () => {
       NaN,
     ];
     types.forEach(a => expect(() => nsKeymirror(a)).toThrowError(TypeError));
+  });
+
+  it('creates mirror keys with namespace and separator', () => {
+    const asyncTypes = { START: null, SUCCESS: null, FAILED: null };
+
+    const types = nsKeymirror({
+      CONNECTION_STATUS: 1,
+      FETCH_BAUDRATE: asyncTypes,
+      FETCH_PORTS: asyncTypes,
+    }, '@NAMESPACE');
+
+    expect(types).toEqual({
+      CONNECTION_STATUS: '@NAMESPACE/CONNECTION_STATUS',
+      'FETCH_BAUDRATE.START': '@NAMESPACE/FETCH_BAUDRATE.START',
+      'FETCH_BAUDRATE.SUCCESS': '@NAMESPACE/FETCH_BAUDRATE.SUCCESS',
+      'FETCH_BAUDRATE.FAILED': '@NAMESPACE/FETCH_BAUDRATE.FAILED',
+      'FETCH_PORTS.START': '@NAMESPACE/FETCH_PORTS.START',
+      'FETCH_PORTS.SUCCESS': '@NAMESPACE/FETCH_PORTS.SUCCESS',
+      'FETCH_PORTS.FAILED': '@NAMESPACE/FETCH_PORTS.FAILED',
+    });
+  });
+
+
+  it('result cannot be mutated', () => {
+    const testString = 'test, test2, test3';
+    const result = nsKeymirror(testString);
+    const nextResult = () => result.newProp = 'test'; // eslint-disable-line no-return-assign
+
+    expect(() => nextResult()).toThrow();
   });
 
   it('trows a Generic Error if argument does not have extractable keys', () => {

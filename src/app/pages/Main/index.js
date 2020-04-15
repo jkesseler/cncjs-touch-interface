@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { actions, selectors } from '@state/modules/controller';
+import { actions } from '@state/modules/controller';
+import { getControllerType } from '@state/modules';
 import Main from './Main';
 
 const mapStateToProps = state => ({
-  controllerType: selectors.slice(state).controllerType,
-  userCommands: selectors.userCommands(state),
-  workflowState: selectors.workflowState(state),
+  controllerType: getControllerType(state),
+  userCommands: getUserCommands(state),
+  workflowState: getWorkflowState(state),
 });
 
 const mapDispatchToProps = dispatch => ({
